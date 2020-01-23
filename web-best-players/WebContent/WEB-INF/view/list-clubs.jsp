@@ -5,11 +5,25 @@
 
 <head>
 <title>List of Clubs</title>
+
+<link   type="text/css" 
+		rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/css/style.css" />
 </head>
 
 <body>
-List of Clubs:
-		
+
+	<div id="wrapper">
+		<div id="header">
+			<h2>List of Clubs</h2>
+		</div>
+	</div>
+	<div id="container">
+
+		<div id="content">
+		<input type="button" value="Add Club"
+				onclick="window.location.href='formForAdd'; return false;"
+				class="add-button" />
 			<table>
 				<tr>
 					<th>Id</th>
@@ -18,41 +32,31 @@ List of Clubs:
 					<th>Value</th>
 					<th>Action</th>
 				</tr>
-				
-				<!-- loop over and print our customers -->
+
 				<c:forEach var="club" items="${theClubs}">
-				
+
 					<c:url var="updateLink" value="/clubs/update">
 						<c:param name="clubsId" value="${club.id}" />
-					</c:url>	
-					
+					</c:url>
+
 					<c:url var="deleteLink" value="/clubs/delete">
 						<c:param name="clubsId" value="${club.id}" />
-					</c:url>					
-					
+					</c:url>
+
 					<tr>
-						<td> ${club.id} </td>
-						<td> ${club.name} </td>
-						<td> ${club.bestPlayer} </td>
-						<td> ${club.value} </td>
-						
+						<td>${club.id}</td>
+						<td>${club.name}</td>
+						<td>${club.bestPlayer}</td>
+						<td>${club.value}</td>
 						<td>
-							<!-- display the update link -->
-							<a href="${updateLink}">Update</a>
-							|
-							<a href="${deleteLink}">Delete</a>
-							
+							  <a href="${updateLink}">Update</a>
+							| <a href="${deleteLink}">Delete</a>
 						</td>
-						
 					</tr>
-				
 				</c:forEach>
-						
 			</table>
-			<input type="button" value="Add Club"
-				   onclick="window.location.href='formForAdd'; return false;"
-				   class="add-button"
-			/>
+		</div>
+	</div>
 </body>
 
 
