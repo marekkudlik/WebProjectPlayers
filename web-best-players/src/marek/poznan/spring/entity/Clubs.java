@@ -8,25 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="clubs")
+@Table(name = "clubs")
 public class Clubs {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="best_player")
+
+	@Column(name = "best_player")
 	private String bestPlayer;
-	
-	@Column(name="value")
+
+	@Column(name = "value")
 	private int value;
-	
+
 	public Clubs() {
-		
+
 	}
 
 	public Clubs(int id, String name, String bestPlayer, int value) {
@@ -72,7 +72,5 @@ public class Clubs {
 	public String toString() {
 		return "Clubs [id=" + id + ", name=" + name + ", bestPlayer=" + bestPlayer + ", value=" + value + "]";
 	}
-	
 
-	
 }
